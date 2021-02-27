@@ -1,0 +1,21 @@
+.FriendDetail {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.FriendDetail-title {
+  margin: 0 0 0.5em 0;
+}
+
+.FriendDetail-small {
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+.FriendDetail-image {
+  border-radius: 8px;
+}
