@@ -26,19 +26,15 @@ Friender app (like Tinder, but for making new friends during quarantine)
 
 ## Todos:
 * Add testing
-* Styling
 * Messages
     * If two users both say yes for friend match, they should be able to message each other
 * Image uploads    
-    * User image upload validation for image file types only
     * Drag and drop file upload
-* Profile
-    * Edit profile
-* Friends List
+* Add option to see Friends List
     * Unlike already liked person
     * Like already unliked person
 * Search by hobbies/interests
-* Add map to potential friends
+* Add map of potential friends
     * Pin on the potential friend's zip code center 
 
 
