@@ -6,6 +6,7 @@ import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import PotentialFriendsList from "../friends/PotentialFriendsList";
 import Profile from "../user/Profile";
+import ProfileForm from "../user/ProfileForm";
 
 /** Site-wide routes.
  *
@@ -17,7 +18,7 @@ import Profile from "../user/Profile";
  * App -> Routes -> {LoginForm, SignupForm, PotentialFriendsList, Profile}
  */
 
-function Routes({ login, signup, uploadImage, like, dislike }) {
+function Routes({ login, signup, updateProfile, uploadImage, like, dislike }) {
   console.debug(
       "Routes",
       `login=${typeof login}`,
@@ -45,7 +46,7 @@ function Routes({ login, signup, uploadImage, like, dislike }) {
           </PrivateRoute>
 
           <PrivateRoute exact path="/profile">
-            <Profile uploadImage={uploadImage} />
+            <ProfileForm updateProfile={updateProfile} uploadImage={uploadImage} />
           </PrivateRoute>
 
           <Redirect to="/" />

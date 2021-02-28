@@ -53,6 +53,13 @@ class FrienderApi {
     let res = await this.request(`users/${user_id}/potentials`);
     return res.user_options
   }
+  
+  /** Update user profile. */
+
+  static async updateProfile(data, user_id) {
+    let res = await this.request(`users/${user_id}/edit`, data, "post");
+    return res.user;
+  }
 
   /** Get token for login from username, password. */
 
@@ -70,17 +77,17 @@ class FrienderApi {
 
   /** Upload an image. */
 
-  static async uploadImage(data, user_id) {
-    let headers = {
-      "Content-Type": "multipart/form-data",
-      "Authorization": `${FrienderApi.token}`
-    }
-    let url = `${BASE_URL}/users/${user_id}/image-upload`;
-    let method = "POST";
-    let res = await axios({ url, data, headers, method })
+  // static async uploadImage(data, user_id) {
+  //   let headers = {
+  //     "Content-Type": "multipart/form-data",
+  //     "Authorization": `${FrienderApi.token}`
+  //   }
+  //   let url = `${BASE_URL}/users/${user_id}/image-upload`;
+  //   let method = "POST";
+  //   let res = await axios({ url, data, headers, method })
 
-    return res.data.image_url;
-  }
+  //   return res.data.image_url;
+  // }
 
   /** Like a potential friend. */
 

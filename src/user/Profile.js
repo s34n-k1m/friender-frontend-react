@@ -2,6 +2,10 @@ import {useContext} from "react";
 import UserContext from "../auth/UserContext";
 import UploadImageForm from "./UploadImageForm";
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS FILE IS NOT BEING USED
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 /** Profile Component
  * 
  * Props:

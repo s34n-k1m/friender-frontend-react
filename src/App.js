@@ -113,6 +113,20 @@ function App() {
     }
   }
 
+  /* update user profile */
+  async function updateProfile(formData) {
+    try {
+      await FrienderApi.updateProfile(formData, currentUser.id);
+      const user = await FrienderApi.getCurrentUser(currentUser.id);
+      setCurrentUser(user);
+
+      return { success: true };
+    } catch (errors) {
+      console.error("update failed", errors);
+      return { success: false, errors }
+    }
+  };
+
   /* Handles uploading of image */
   async function uploadImage(imgData) {
     try {
@@ -121,7 +135,7 @@ function App() {
 
       return { success: true };
     } catch (errors) {
-      console.error("login failed", errors);
+      console.error("upload failed", errors);
       return { success: false, errors };
     }
   }
@@ -135,7 +149,7 @@ function App() {
 
       return { success: true };
     } catch (errors) {
-      console.error("login failed", errors);
+      console.error("like failed", errors);
       return { success: false, errors };
     }
   }
@@ -149,7 +163,7 @@ function App() {
 
       return { success: true };
     } catch (errors) {
-      console.error("login failed", errors);
+      console.error("dislike failed", errors);
       return { success: false, errors };
     }
   }
@@ -165,6 +179,7 @@ function App() {
           <Routes 
             login={login}
             signup={signup}
+            updateProfile={updateProfile}
             uploadImage={uploadImage}
             like={likePotentialFriend}
             dislike={dislikePotentialFriend} />

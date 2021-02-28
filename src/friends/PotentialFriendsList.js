@@ -86,8 +86,8 @@ function PotentialFriendsList({ like, dislike }) {
           data-testid="right-arrow"
         />
       </div>
-      <button onClick={handleLike} class="btn btn-success btn-circle btn-xl m-2"><i class="fas fa-thumbs-up"></i></button>
-      <button onClick={handleDislike} class="btn btn-danger btn-circle btn-xl m-2"><i class="fas fa-thumbs-down"></i></button>
+      <button onClick={handleLike} className="btn btn-success btn-circle btn-xl m-2"><i className="fas fa-thumbs-up"></i></button>
+      <button onClick={handleDislike} className="btn btn-danger btn-circle btn-xl m-2"><i className="fas fa-thumbs-down"></i></button>
     </div>
   );
 
