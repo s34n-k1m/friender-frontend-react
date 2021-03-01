@@ -35,22 +35,43 @@ function PotentialFriendsList({ like, dislike }) {
   const goBack = () => setFriendIndx(friendIndx - 1);
 
   /* Handles liking the potential friend */
+
   function handleLike(evt) {
     // If at end of potentialFriends array, need logic to prevent
     // having a friendIndx outside the bounds of the array
-    if (friendIndx >= potentialFriends.length - 1) {
-      if (friendIndx === 0) {
-        setFriendIndx(0);
-      } else {
-        setFriendIndx(friendIndx => friendIndx - 1)
-      }
-    }
-
+    // if (friendIndx >= potentialFriends.length - 1) {
+    //   if (friendIndx === 0) {
+    //     setFriendIndx(0);
+    //   } else {
+    //     setFriendIndx(friendIndx => friendIndx - 1)
+    //   }
+    // }
+    updateFriendIndexAtEnd();
     like(friendInfo.id);
   }
 
   /* Handles disliking the potential friend */
+
   function handleDislike(evt) {
+    // if (friendIndx >= potentialFriends.length - 1) {
+    //   if (friendIndx === 0) {
+    //     setFriendIndx(0);
+    //   } else {
+    //     setFriendIndx(friendIndx => friendIndx - 1)
+    //   }
+    // }
+    updateFriendIndexAtEnd();
+    dislike(friendInfo.id);
+  }
+
+
+  /** Updates friendIndex when at end of potentialFriends array
+   *
+   * When at end of potentialFriends array, need logic to prevent
+   * having a friendIndx outside the bounds of the array.
+  */
+  function updateFriendIndexAtEnd() {
+
     if (friendIndx >= potentialFriends.length - 1) {
       if (friendIndx === 0) {
         setFriendIndx(0);
@@ -58,14 +79,12 @@ function PotentialFriendsList({ like, dislike }) {
         setFriendIndx(friendIndx => friendIndx - 1)
       }
     }
-
-    dislike(friendInfo.id);
   }
 
-  if (total === 0) return <div>No potential friends.</div>
+  if (total === 0) return <div><h3>No potential friends in your friend radius.</h3></div>
 
   return (
-    <div className="PotentialFriendsList col-md-8 offset-md-2">
+    <div className="PotentialFriendsList col-md-6 offset-md-3">
       <h1>Your Potential Friend Matches!</h1>
       <div className="PotentialFriendsList-main mt-4 mb-2">
         <i

@@ -33,7 +33,8 @@ class FrienderApi {
       return (await axios({ url, method, data, headers, params })).data;
     } catch (err) {
       console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
+      // let message = err.response.data.error.message;
+      let message = err.response.data.status;
       throw Array.isArray(message) ? message : [message];
     }
   }

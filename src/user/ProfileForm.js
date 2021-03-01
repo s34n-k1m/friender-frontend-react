@@ -1,8 +1,29 @@
 import { useContext, useEffect, useState } from "react";
 // import UploadImageForm from "./UploadImageForm";
 import UserContext from "../auth/UserContext";
+import "./ProfileForm.css";
 
-function ProfileForm({ updateProfile, uploadImage }) {
+/** ProfileForm Component
+ * 
+ * Props:
+ * - uploadProfile: function passed down from App Component
+ * 
+ * State: 
+ * - formData
+ * - errorMessages
+ * - successMessage
+ * - isUpdating: T/F
+ * - imageSource
+ * 
+ * Context: 
+ * - currentUser: array of objects 
+ *         [ {username, email, first_name, last_name, image_url, 
+ *            hobbies, interests, zip_code, friend_radius_miles}, ... ]
+ * 
+ * App -> Router -> ProfileForm
+ */
+
+function ProfileForm({ updateProfile }) {
   const { currentUser } = useContext(UserContext);
   const {
     image_url,
@@ -29,10 +50,9 @@ function ProfileForm({ updateProfile, uploadImage }) {
     password: ""
   });
   const [errorMessages, setErrorMessages] = useState(null);
-  const [isUpdating, setIsUpdating] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [imageSource, setImageSource] = useState(currentUser.image_url);
-
 
   useEffect(function updateUserProfile() {
     async function updateProfileAPICall() {
@@ -65,18 +85,21 @@ function ProfileForm({ updateProfile, uploadImage }) {
   }, [isUpdating, updateProfile, formData])
 
   /* Handles form submission */
+
   function handleSubmit(evt) {
     evt.preventDefault();
     setIsUpdating(true);
   }
 
   /* Handles form data changes */
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(fData => ({ ...fData, [name]: value }));
   }
 
   /** Handle changes of image file */
+
   function handleImageChange(evt) {
     setFormData((prevData) => ({
       ...prevData,
@@ -85,7 +108,7 @@ function ProfileForm({ updateProfile, uploadImage }) {
 
     let reader = new FileReader();
     let file = evt.target.files[0]
-    
+
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImageSource(reader.result);
@@ -93,8 +116,8 @@ function ProfileForm({ updateProfile, uploadImage }) {
   }
 
   /* Displays error message if wrong login info inputted */
+
   function displayErrorMessage() {
-    // && instead of null
     return (
       <>
         {
@@ -107,6 +130,7 @@ function ProfileForm({ updateProfile, uploadImage }) {
   }
 
   /* Displays success message if user profile update successful */
+
   function displaySuccessMessage() {
     return (
       <>
@@ -121,11 +145,9 @@ function ProfileForm({ updateProfile, uploadImage }) {
 
   return (
     <div className="ProfileForm col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-      <h3>Profile</h3>
-      <div className="card">
+      <h3>{username} Profile</h3>
+      <div className="card my-3">
         <div className="card-body">
-          {displayErrorMessage()}
-          {displaySuccessMessage()}
           <img
             className="ProfileForm-image img-thumbnail"
             src={imageSource}
@@ -163,9 +185,6 @@ function ProfileForm({ updateProfile, uploadImage }) {
             </div>
 
             <div className="ProfileForm-info form-group">
-              <label>Username:</label>
-              <p className="form-control-plaintext">{username}</p>
-
               <label htmlFor="email" className="ProfileForm-email">Email</label>
               <input
                 className="ProfileForm-email form-control flex-grow-1"
@@ -248,6 +267,8 @@ function ProfileForm({ updateProfile, uploadImage }) {
                 onChange={handleChange}
                 required
               />
+              {displayErrorMessage()}
+              {displaySuccessMessage()}
               <button className="btn btn-primary mt-3">Save Changes</button>
             </div>
           </form>

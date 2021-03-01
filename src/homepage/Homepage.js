@@ -17,7 +17,7 @@ function Homepage() {
   console.debug("Homepage", "currentUser=", currentUser);
 
   return (
-      <div className="Homepage">
+      <div className="Homepage Homepage-background">
         <div className="container text-center">
           <h1 className="mb-4 font-weight-bold">Friender</h1>
           <p className="lead">Find new friends!</p>

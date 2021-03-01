@@ -53,7 +53,7 @@ function App() {
     async function getCurrentUser() {
       if (token) {
         try {
-          let { username, user_id } = jwt.decode(token);
+          let { user_id } = jwt.decode(token);
           // put the token on the Api class so it can use it to call the API.
           FrienderApi.token = token;
           let currentUser = await FrienderApi.getCurrentUser(user_id);
@@ -76,6 +76,7 @@ function App() {
   }, [token]);
 
   /** Handles site-wide logout. */
+
   function logout() {
     setCurrentUser(null);
     setToken(null);
@@ -87,6 +88,7 @@ function App() {
    *
    * Make sure you await this function and check its return value!
    */
+
   async function signup(signupData) {
     try {
       let token = await FrienderApi.signup(signupData);
@@ -102,6 +104,7 @@ function App() {
    *
    * Make sure you await this function and check its return value!
    */
+
   async function login(loginData) {
     try {
       let token = await FrienderApi.login(loginData);
@@ -127,20 +130,21 @@ function App() {
     }
   };
 
-  /* Handles uploading of image */
-  async function uploadImage(imgData) {
-    try {
-      let image = await FrienderApi.uploadImage(imgData, currentUser.id);
-      setCurrentUser(currentUser => ({...currentUser, image_url: image}));
+  // /* Handles uploading of image */
+  // async function uploadImage(imgData) {
+  //   try {
+  //     let image = await FrienderApi.uploadImage(imgData, currentUser.id);
+  //     setCurrentUser(currentUser => ({...currentUser, image_url: image}));
 
-      return { success: true };
-    } catch (errors) {
-      console.error("upload failed", errors);
-      return { success: false, errors };
-    }
-  }
+  //     return { success: true };
+  //   } catch (errors) {
+  //     console.error("upload failed", errors);
+  //     return { success: false, errors };
+  //   }
+  // }
 
   /* Handles liking of potential friend */
+
   async function likePotentialFriend(otherId) {
     try {
       await FrienderApi.likePotentialFriend(otherId);
@@ -155,6 +159,7 @@ function App() {
   }
   
   /* Handles disliking of potential friend */
+
   async function dislikePotentialFriend(otherId) {
     try {
       await FrienderApi.dislikePotentialFriend(otherId);
@@ -180,7 +185,7 @@ function App() {
             login={login}
             signup={signup}
             updateProfile={updateProfile}
-            uploadImage={uploadImage}
+            // uploadImage={uploadImage}
             like={likePotentialFriend}
             dislike={dislikePotentialFriend} />
         </div>

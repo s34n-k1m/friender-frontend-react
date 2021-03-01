@@ -13,7 +13,7 @@ import "./Navigation.css";
  *         [ {username, email, first_name, last_name, image_url, 
  *            hobbies, interests, zip_code, friend_radius_miles}, ... ]
  *
- * App -> Navigation -> {Friender, Login/Signup, Find Friends, Profile, Log Out}
+ * App -> Navigation -> {Friender, Login/Signup, Find Friends, ProfileForm, Log Out}
  */
 
 function Navigation({ logout }) {

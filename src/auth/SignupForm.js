@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
+import "./SignupForm.css";
 
 /** Signup form.
  *
@@ -38,7 +39,7 @@ function SignupForm({ signup }) {
 
   /** Handle form submit:
    *
-   * Calls login func prop and, if successful, redirect to /find-friends.
+   * Calls signup func prop and, if successful, redirect to /find-friends.
    */
 
   async function handleSubmit(evt) {

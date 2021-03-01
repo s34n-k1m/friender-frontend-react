@@ -5,7 +5,7 @@ import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import PotentialFriendsList from "../friends/PotentialFriendsList";
-import Profile from "../user/Profile";
+// import Profile from "../user/Profile";
 import ProfileForm from "../user/ProfileForm";
 
 /** Site-wide routes.

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
+import "./LoginForm.css";
 
 /** Login form.
  *
@@ -35,7 +36,9 @@ function LoginForm({ login }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+
     let result = await login(formData);
+    
     if (result.success) {
       history.push("/find-friends");
     } else {

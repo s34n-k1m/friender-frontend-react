@@ -33,7 +33,7 @@ function FriendDetail({ friendInfo, currNum, totalNum }) {
           <li className="list-group-item text-left"><b>Hobbies</b>: {hobbies}</li>
           <li className="list-group-item text-left"><b>Interests</b>: {interests}</li>
         </ul>
-        <img className="FriendDetail-image card-img-bottom" src={image_url} alt={`User image ${first_name} ${last_name}`} />
+        <img className="FriendDetail-image card-img-bottom" src={image_url} alt={`User ${first_name} ${last_name}`} />
       </div>
       <div className="FriendDetail-small card-footer">
         <small>

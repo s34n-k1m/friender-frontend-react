@@ -20,6 +20,7 @@ import UploadImageForm from "./UploadImageForm";
  * 
  * App -> Router -> Profile -> UploadImageForm
  */
+
 function Profile({uploadImage}) {
   const { currentUser } = useContext(UserContext);
   const {
@@ -37,7 +38,7 @@ function Profile({uploadImage}) {
   return (
     <div>
       <h4 className="FriendDetail-title">{first_name} {last_name}</h4>
-      <img className="FriendDetail-image" src={image_url} alt="User Image" />
+      <img className="FriendDetail-image" src={image_url} alt={`Username ${username}`} />
       <UploadImageForm uploadImage={uploadImage} />
       <p className="FriendDetail-title">Username: {username}</p>
       <p className="FriendDetail-title">Email: {email}</p>
