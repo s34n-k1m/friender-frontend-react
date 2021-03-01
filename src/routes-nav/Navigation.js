@@ -59,7 +59,7 @@ function Navigation({ logout }) {
   }
 
   return (
-      <nav className="Navigation navbar navbar-expand-md">
+      <nav className="Navigation navbar navbar-expand-md navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
           Friender
         </Link>

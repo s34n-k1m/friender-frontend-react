@@ -19,11 +19,11 @@ function Homepage() {
   return (
       <div className="Homepage Homepage-background">
         <div className="container text-center">
-          <h1 className="mb-4 font-weight-bold">Friender</h1>
-          <p className="lead">Find new friends!</p>
+          <h1 className="Homepage-title mb-4 font-weight-bold">Friender</h1>
+          <p className="Homepage-lead lead">Find new friends!</p>
           {currentUser
-              ? <h2>
-                Welcome Back, {currentUser.firstName || currentUser.username}!
+              ? <h2 className="Homepage-welcome">
+                Welcome Back, {currentUser.first_name || currentUser.username}!
               </h2>
               : (
                   <p>
