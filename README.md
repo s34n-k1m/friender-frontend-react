@@ -16,7 +16,7 @@ Friender app (like Tinder, but for making new friends during quarantine)
 * Login/authentication
 * Users can sign up with: username, email, password, first name, last name, hobbies, interests, location (zip code), and friend radius (in miles)
 * Once users login, they can optionally upload photos (Images are stored to Amazon S3).
-* User are show potential friends list and can like or dislike each potential friend
+* User are shown potential friends list and can like or dislike each potential friend
 * Users are shown other users (name, hobbies, interests, pics) who meet the following criteria:
     1. Other user's location is within friend radius
     2. User's location is within other user's friend radius
