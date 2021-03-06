@@ -28,7 +28,6 @@ export const TOKEN_STORAGE_ID = "token";
  * App -> Routes
  */
 
-
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [potentialFriends, setPotentialFriends] = useState([]);
