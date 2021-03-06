@@ -64,7 +64,6 @@ function PotentialFriendsList({ like, dislike }) {
     dislike(friendInfo.id);
   }
 
-
   /** Updates friendIndex when at end of potentialFriends array
    *
    * When at end of potentialFriends array, need logic to prevent
