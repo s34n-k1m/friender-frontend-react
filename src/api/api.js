@@ -18,7 +18,6 @@ class FrienderApi {
    method (optional). Returns axios response data. */
    
   static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
     let headers;
     if (FrienderApi.token) {
       headers = { Authorization: `${FrienderApi.token}` };
@@ -75,20 +74,6 @@ class FrienderApi {
     let res = await this.request(`signup`, data, "post");
     return res.token;
   }
-
-  /** Upload an image. */
-
-  // static async uploadImage(data, user_id) {
-  //   let headers = {
-  //     "Content-Type": "multipart/form-data",
-  //     "Authorization": `${FrienderApi.token}`
-  //   }
-  //   let url = `${BASE_URL}/users/${user_id}/image-upload`;
-  //   let method = "POST";
-  //   let res = await axios({ url, data, headers, method })
-
-  //   return res.data.image_url;
-  // }
 
   /** Like a potential friend. */
 

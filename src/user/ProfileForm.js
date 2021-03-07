@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import UploadImageForm from "./UploadImageForm";
 import UserContext from "../auth/UserContext";
 import "./ProfileForm.css";
 
@@ -61,11 +60,8 @@ function ProfileForm({ updateProfile }) {
       for (let key in formData) {
         formToSubmit.append(key, formData[key]);
       }
-      console.debug("profileForm= ", formToSubmit);
 
-      // let result = await signup(formToSubmit);
       const resUpdate = await updateProfile(formToSubmit);
-      console.debug("Result: ", resUpdate);
 
       if (resUpdate.success) {
         setFormData(fData => ({ ...fData, password: "" }));
@@ -175,13 +171,6 @@ function ProfileForm({ updateProfile }) {
                   Upload a new profile image
                 </label>
               </div>
-              {/* <div className="input-group-append">
-                <button
-                  className="btn btn-primary"
-                  type="button">
-                  Select
-                </button>
-              </div> */}
             </div>
 
             <div className="ProfileForm-info form-group">

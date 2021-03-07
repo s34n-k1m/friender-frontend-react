@@ -30,13 +30,6 @@ function SignupForm({ signup }) {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  console.debug(
-      "SignupForm",
-      "signup=", typeof signup,
-      "formData=", formData,
-      "formErrors=", formErrors,
-  );
-
   /** Handle form submit:
    *
    * Calls signup func prop and, if successful, redirect to /find-friends.

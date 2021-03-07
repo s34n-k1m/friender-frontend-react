@@ -37,15 +37,6 @@ function PotentialFriendsList({ like, dislike }) {
   /* Handles liking the potential friend */
 
   function handleLike(evt) {
-    // If at end of potentialFriends array, need logic to prevent
-    // having a friendIndx outside the bounds of the array
-    // if (friendIndx >= potentialFriends.length - 1) {
-    //   if (friendIndx === 0) {
-    //     setFriendIndx(0);
-    //   } else {
-    //     setFriendIndx(friendIndx => friendIndx - 1)
-    //   }
-    // }
     updateFriendIndexAtEnd();
     like(friendInfo.id);
   }
@@ -53,13 +44,6 @@ function PotentialFriendsList({ like, dislike }) {
   /* Handles disliking the potential friend */
 
   function handleDislike(evt) {
-    // if (friendIndx >= potentialFriends.length - 1) {
-    //   if (friendIndx === 0) {
-    //     setFriendIndx(0);
-    //   } else {
-    //     setFriendIndx(friendIndx => friendIndx - 1)
-    //   }
-    // }
     updateFriendIndexAtEnd();
     dislike(friendInfo.id);
   }

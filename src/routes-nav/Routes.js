@@ -5,7 +5,6 @@ import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import PotentialFriendsList from "../friends/PotentialFriendsList";
-// import Profile from "../user/Profile";
 import ProfileForm from "../user/ProfileForm";
 
 /** Site-wide routes.
@@ -19,11 +18,6 @@ import ProfileForm from "../user/ProfileForm";
  */
 
 function Routes({ login, signup, updateProfile, uploadImage, like, dislike }) {
-  console.debug(
-      "Routes",
-      `login=${typeof login}`,
-      `register=${typeof register}`,
-  );
 
   return (
       <div className="pt-5">

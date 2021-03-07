@@ -14,7 +14,6 @@ import UserContext from "../auth/UserContext";
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);
-  console.debug("Homepage", "currentUser=", currentUser);
 
   return (
       <div className="Homepage Homepage-background">

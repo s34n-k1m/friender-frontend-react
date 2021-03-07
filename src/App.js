@@ -34,20 +34,13 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
-  console.debug(
-    "App",
-    "infoLoaded=", infoLoaded,
-    "currentUser=", currentUser,
-    "token=", token,
-  );
-
-
-  // Load user info from API. Until a user is logged in and they have a token,
-  // this should not run. It only needs to re-run when a user logs out, so
-  // the value of the token is a dependency for this effect.
-
+  /**
+   * Load user info from API. Until a user is logged in and they have a token,
+   * this should not run. It only needs to re-run when a user logs out, so
+   * the value of the token is a dependency for this effect.
+  */
+  
   useEffect(function loadUserInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
 
     async function getCurrentUser() {
       if (token) {
@@ -68,7 +61,7 @@ function App() {
     }
 
     // set infoLoaded to false while async getCurrentUser runs; once the
-    // data is fetched (or even if an error happens!), this will be set back
+    // data is fetched (or even if an error happens), this will be set back
     // to false to control the spinner.
     setInfoLoaded(false);
     getCurrentUser();
@@ -115,7 +108,8 @@ function App() {
     }
   }
 
-  /* update user profile */
+  /* Update user profile */
+
   async function updateProfile(formData) {
     try {
       await FrienderApi.updateProfile(formData, currentUser.id);
@@ -128,19 +122,6 @@ function App() {
       return { success: false, errors }
     }
   };
-
-  // /* Handles uploading of image */
-  // async function uploadImage(imgData) {
-  //   try {
-  //     let image = await FrienderApi.uploadImage(imgData, currentUser.id);
-  //     setCurrentUser(currentUser => ({...currentUser, image_url: image}));
-
-  //     return { success: true };
-  //   } catch (errors) {
-  //     console.error("upload failed", errors);
-  //     return { success: false, errors };
-  //   }
-  // }
 
   /* Handles liking of potential friend */
 
