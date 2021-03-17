@@ -17,8 +17,8 @@ import "./LoginForm.css";
 function LoginForm({ login }) {
   const history = useHistory();
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: "demouser",
+    password: "demopassword",
   });
   const [formErrors, setFormErrors] = useState([]);
 
